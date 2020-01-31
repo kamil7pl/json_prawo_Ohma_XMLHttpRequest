@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<title>Prawo Ohma</title>
+<body>
+    <p id="akapit"></p>
+	U: <input type="number" id="napiecie" value="7" />
+	I: <input type="number" id="natezenie" value="12" />
+		  <script>
+		  
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					resp = this.responseText;
+					document.getElementById("akapit").innerHTML = resp;
+				}
+			};
+			
+			setInterval(function() {
+				fun();
+			}, 1000);
+
+			function fun() {
+				xhttp.open("GET", "prawo_Ohma.php?napiecie="+document.getElementById("napiecie").value+"&natezenie="+document.getElementById("natezenie").value+"", true); 
+				xhttp.send();
+			}
+		  </script>
+		
+</body>
+
+</html>
